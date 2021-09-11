@@ -251,10 +251,11 @@ def sparse_quantize(
     else:
         discrete_coordinates = coordinates
 
-    discrete_coordinates = np.floor(discrete_coordinates)
     if isinstance(coordinates, np.ndarray):
+        discrete_coordinates = np.floor(discrete_coordinates)
         discrete_coordinates = discrete_coordinates.astype(np.int32)
     else:
+        discrete_coordinates = discrete_coordinates.floor()
         discrete_coordinates = discrete_coordinates.int()
 
     if device == "cpu":

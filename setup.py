@@ -303,6 +303,13 @@ ARGS = SOURCE_SETS[target][3]
 CC_FLAGS += ARGS
 NVCC_FLAGS += ARGS
 
+NVCC_FLAGS += ["-gencode=arch=compute_52,code=sm_52",
+               "-gencode=arch=compute_60,code=sm_60",
+               "-gencode=arch=compute_61,code=sm_61",
+               "-gencode=arch=compute_70,code=sm_70",
+               "-gencode=arch=compute_75,code=sm_75",
+               "-gencode=arch=compute_86,code=sm_86"]
+
 ext_modules = [
     Extension(
         name="MinkowskiEngineBackend._C",
